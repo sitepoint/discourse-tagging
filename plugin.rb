@@ -55,6 +55,7 @@ after_initialize do
 
       return unless tags
 
+      tags = tags.values if tags.class == ActionController::Parameters
       tags.map! {|t| clean_tag(t) }
       tags.delete_if {|t| t.blank? }
       tags.uniq!
