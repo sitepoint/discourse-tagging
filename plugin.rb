@@ -356,6 +356,7 @@ after_initialize do
 
   Discourse::Application.routes.append do
     mount ::DiscourseTagging::Engine, at: "/tags"
+    get '/tag/:tagname', to: redirect('/tags/%{tagname}')
   end
 
   # Add a `tags` reader to the Topic model for easy reading of tags
